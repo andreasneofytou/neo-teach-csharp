@@ -1,0 +1,25 @@
+﻿@model Teach.ViewModels.UserModels.RegisterUserViewModel
+<div class="ui grid">
+    <form id="user-register" class="ui form four wide column" method="post">
+        @Html.AntiForgeryToken()
+        <div class="field">
+            <input asp-for="FirstName" type="text" name="FirstName" placeholder="First Name">
+        </div>
+        <div class="field">
+            <input asp-for="LastName" type="text" name="LastName" placeholder="Last Name">
+        </div>
+        <div class="field">
+            <input asp-for="Email" type="email" name="Email" placeholder="Email">
+        </div>
+        <div class="field">
+            <input asp-for="DateOfBirth" type="date" name="DateOfBirth" placeholder="Date of Birth">
+        </div>
+        <div class="field">
+            <input asp-for="Password" type="password" name="Password" placeholder="Password">
+        </div>
+        <div class="field">
+            <input asp-for="ConfirmPassword" type="password" name="ConfirmPassword" placeholder="Confirm Password">
+        </div>
+        <button class="ui right floated blue button" type="submit">Submit</button>
+    </form>
+</div>

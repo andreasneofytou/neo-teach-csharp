@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Teach</title>
+
+    <environment names="Development">
+        <link rel="stylesheet" href="~/lib/semantic/dist/semantic.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/lib/semantic/dist/semantic.min.css" />
+    </environment>
+</head>
+<body>
+    <div id="sidenav-menu" class="ui left fixed inverted vertical accordion menu"
+         style="height:100%; padding:0;border-radius: 0;">
+        <div class="item">
+            <a asp-controller="Home" asp-action="Index" style="font-size: xx-large">Teach</a>
+        </div>
+        <div class="item">
+            <a asp-controller="Users" asp-action="Index">People</a>
+        </div>
+        <div class="item">
+            <a asp-action="Index" asp-controller="CourseClasses">Classes</a>
+        </div>
+        <div class="item">
+            <a class="title">
+                <i class="dropdown icon"></i>
+                Empty
+            </a>
+            <div class="content">
+
+            </div>
+        </div>
+        <div class="item">
+            <a asp-action="Logout" asp-controller="Users">Logout</a>
+        </div>
+    </div>
+
+    <div id="main-container" class="ui fluid container">
+        @RenderBody()
+        @*<footer>
+            <p>&copy; 2016 - Teach</p>
+        </footer>*@
+    </div>
+
+    <environment names="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/semantic/dist/semantic.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+        </script>
+        <script src="~/lib/semantic/dist/semantic.min.js"></script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

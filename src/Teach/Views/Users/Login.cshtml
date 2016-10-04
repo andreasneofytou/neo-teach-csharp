@@ -1,0 +1,73 @@
+﻿@{
+    Layout = "";
+}
+@model Teach.ViewModels.UserModels.LoginUserViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Teach</title>
+
+    <environment names="Development">
+        <link rel="stylesheet" href="~/lib/semantic/dist/semantic.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/lib/semantic/dist/semantic.min.css" />
+    </environment>
+</head>
+
+<body id="login-body">
+    <div class="ui middle aligned center aligned grid">
+        <div class="column">
+            <h2 class="ui blue header">Log-in to your account</h2>
+            <form id="login-form" class="ui form" method="post">
+                @Html.AntiForgeryToken()
+                <div class="ui stacked segment">
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="user icon"></i>
+                            <input asp-for="Email" name="email" placeholder="Email" type="email">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="lock icon"></i>
+                            <input asp-for="Password" name="password" placeholder="Password" type="password">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui checkbox">
+                            <input asp-for="RememberMe" type="checkbox" name="example">
+                            <label asp-for="RememberMe"></label>
+                        </div>
+                    </div>
+                    <button type="submit" class="ui fluid large blue submit button">Login</button>
+                </div>
+                <div asp-validation-summary="All" class="ui negative message"></div>
+            </form>
+        </div>
+    </div>
+    <environment names="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/semantic/dist/semantic.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+        </script>
+        <script src="~/lib/semantic/dist/semantic.min.js"></script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+</body>
+</html>
